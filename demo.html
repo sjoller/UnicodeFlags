@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Unicode flags</title>
+		<link href="css/unicode-flags.min.css" rel="stylesheet" type="text/css">
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+		
+			body {
+				display: grid;
+				justify-content: center;
+				background-color: #76A973;
+				font-family: TrebucheMS, sans-serif;
+			}
+		
+			h1 {
+				text-align: center;
+				white-space: nowrap;
+				text-transform: uppercase;
+			}
+		
+			.box {
+				background: rgba(0,0,0,.25);
+				width: 50vw;
+				outline: 3px solid rgba(0,0,0,.15);
+				border-radius: 1rem;
+				padding: .5rem;
+				margin-bottom: 1rem;
+				justify-content: center;
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+		
+			#flags-small {
+				font-size: 1rem;
+			}
+
+			#flags-medium {
+				font-size: 2rem;
+			}
+
+			#flags-big {
+				font-size: 4rem;
+			}
+		</style>
+	</head>
+	<body>
+		<h1><span id="count"></span> country flags</h1>
+		<div id="flags-small" class="box"></div>
+		<div id="flags-medium" class="box"></div>
+		<div id="flags-big" class="box"></div>
+		<script>
+			const countryCodes = [
+				'ac',
+				'ad',
+				'ae',
+				'af',
+				'ag',
+				'ai',
+				'al',
+				'am',
+				'ao',
+				'aq',
+				'ar',
+				'as',
+				'at',
+				'au',
+				'aw',
+				'ax',
+				'az',
+				'ba',
+				'bb',
+				'bd',
+				'be',
+				'bf',
+				'bg',
+				'bh',
+				'bi',
+				'bj',
+				'bl',
+				'bm',
+				'bn',
+				'bo',
+				'bq',
+				'br',
+				'bs',
+				'bt',
+				'bv',
+				'bw',
+				'by',
+				'bz',
+				'ca',
+				'cc',
+				'cd',
+				'cf',
+				'cg',
+				'ch',
+				'ci',
+				'ck',
+				'cl',
+				'cm',
+				'cn',
+				'cd',
+				'cp',
+				'cr',
+				'cu',
+				'cv',
+				'cw',
+				'cx',
+				'cy',
+				'cz',
+				'de',
+				'dg',
+				'dj',
+				'dk',
+				'dm',
+				'do',
+				'dz',
+				'ea',
+				'ec',
+				'ee',
+				'eg',
+				'eh',
+				'er',
+				'es',
+				'et',
+				'eu',
+				'fi',
+				'fj',
+				'fk',
+				'fm',
+				'fo',
+				'fr',
+				'ga',
+				'gb',
+				'gd',
+				'ge',
+				'gf',
+				'gg',
+				'gh',
+				'gi',
+				'gl',
+				'gm',
+				'gn',
+				'gp',
+				'gq',
+				'gr',
+				'gs',
+				'gt',
+				'gu',
+				'gw',
+				'gy',
+				'hk',
+				'hm',
+				'hn',
+				'hr',
+				'ht',
+				'hu',
+				'ic',
+				'id',
+				'ie',
+				'il',
+				'im',
+				'in',
+				'io',
+				'iq',
+				'ir',
+				'is',
+				'it',
+				'je',
+				'jm',
+				'jo',
+				'jp',
+				'ke',
+				'kg',
+				'kh',
+				'ki',
+				'km',
+				'kn',
+				'kp',
+				'kr',
+				'kw',
+				'ky',
+				'kz',
+				'la',
+				'lb',
+				'lc',
+				'li',
+				'lk',
+				'lr',
+				'ls',
+				'lt',
+				'lu',
+				'lv',
+				'ly',
+				'ma',
+				'mc',
+				'md',
+				'me',
+				'mf',
+				'mg',
+				'mh',
+				'mk',
+				'ml',
+				'mm',
+				'mn',
+				'mo',
+				'mp',
+				'mq',
+				'mr',
+				'ms',
+				'mt',
+				'mu',
+				'mv',
+				'mw',
+				'mx',
+				'my',
+				'mz',
+				'na',
+				'nc',
+				'ne',
+				'nf',
+				'ng',
+				'ni',
+				'nl',
+				'no',
+				'np',
+				'nr',
+				'nu',
+				'nz',
+				'om',
+				'pa',
+				'pe',
+				'pf',
+				'pg',
+				'ph',
+				'pk',
+				'pl',
+				'pm',
+				'pn',
+				'pr',
+				'ps',
+				'pt',
+				'pw',
+				'py',
+				'qa',
+				're',
+				'ro',
+				'rs',
+				'ru',
+				'rw',
+				'sa',
+				'sb',
+				'sc',
+				'sd',
+				'se',
+				'sg',
+				'sh',
+				'si',
+				'sj',
+				'sk',
+				'sl',
+				'sm',
+				'sn',
+				'so',
+				'sr',
+				'ss',
+				'st',
+				'sv',
+				'sx',
+				'sy',
+				'sz',
+				'ta',
+				'tc',
+				'td',
+				'tf',
+				'tg',
+				'th',
+				'tj',
+				'tk',
+				'tl',
+				'tm',
+				'tn',
+				'to',
+				'tr',
+				'tt',
+				'ty',
+				'tw',
+				'tz',
+				'ua',
+				'ug',
+				'um',
+				'un',
+				'us',
+				'uy',
+				'uz',
+				'va',
+				'vc',
+				've',
+				'vg',
+				'vi',
+				'vn',
+				'vu',
+				'wf',
+				'ws',
+				'xk',
+				'ye',
+				'yt',
+				'za',
+				'zm',
+				'zw'
+			];
+			const countElement = document.querySelector('#count');
+			const smallElement = document.querySelector('#flags-small');
+			const mediumElement = document.querySelector('#flags-medium');
+			const bigElement = document.querySelector('#flags-big');
+
+			countElement.innerHTML = countryCodes.length;
+
+			countryCodes.forEach(countryCode => {
+			  const smallSpan = document.createElement('span');
+			  smallSpan.className = 'flag-' + countryCode;
+			  
+			  smallElement.appendChild(smallSpan);
+			  mediumElement.appendChild(smallSpan.cloneNode(true));
+			  bigElement.appendChild(smallSpan.cloneNode(true));
+			});
+		</script>
+	</body>
+</html>
