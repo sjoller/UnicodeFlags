@@ -4,7 +4,7 @@ Say goodbye to tiny pixelated flags from a sprite, and enjoy scaleable and detai
 
 ## Usage
 
-This uses the CSS `:before` pseudo-class to add unicode flags to html elements.
+This uses the CSS `:before` pseudo-element to add unicode flags to html elements.
 
 Simply include the css file 
 
