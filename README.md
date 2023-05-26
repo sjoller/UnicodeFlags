@@ -24,3 +24,4 @@ Then just add the `flag-[xy]` class to any HTML element (except `img` elements, 
 <span class="flag-dk"></span>
 ```
 
+Unicode country list extracted from [https://www.alt-codes.net/flags](https://www.alt-codes.net/flags)
