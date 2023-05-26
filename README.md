@@ -18,7 +18,7 @@ As Windows does not seem to include unicode flags in system fonts, the `NotoColo
 <link href="https://path/to/css/unicode-flags-no-font.min.css" rel="stylesheet" type="text/css">
 ```
 
-Then just add the `flag-[xy]` class to any HTML element
+Then just add the `flag-[xy]` class to any HTML element (except `img` elements, where pseudo-elements won't work)
 
 ```html
 <span class="flag-dk"></span>
